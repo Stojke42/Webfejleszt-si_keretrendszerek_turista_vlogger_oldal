@@ -1,0 +1,8 @@
+<div class="main_component">
+    <h1>Hello LOGIN
+    </h1>
+    <span><label for="email">Email:</label><input type="email" [formControl]="email"></span>
+    <span><label for="password">Password:</label><input type="password" [formControl]="password"></span>
+    <span><button (click)="login()">LogIn</button></span>
+    <span><button [routerLink]="'/signup'">SignUp</button></span>
+</div>
