@@ -1,5 +1,5 @@
-<app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page"></app-menu>
-<!-- <ng-container [ngSwitch]="page">
+<app-menu (selectedPage)="changePage($event)"></app-menu>
+<ng-container [ngSwitch]="page">
   <ng-container *ngSwitchCase="'main'">
     <div class="main_component">
       <app-main></app-main>
@@ -16,6 +16,6 @@
   <ng-container *ngSwitchDefault>
     <h1>Page not found...</h1>
   </ng-container>
-</ng-container> -->
+</ng-container>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
