@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'turista_vlogger'`, () => {
+  it(`should have as title 'week-04'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('turista_vlogger');
+    expect(app.title).toEqual('week-04');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('turista_vlogger app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('week-04 app is running!');
   });
 });

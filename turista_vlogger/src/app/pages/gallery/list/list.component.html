@@ -1,1 +1,5 @@
-<p>list works!</p>
+<div>
+    <select (change)="reload()" [(ngModel)]="chosenImage">
+        <option *ngFor="let obj of galleryObjectInput" [ngValue]="obj">{{obj.id}}</option>
+    </select>
+</div>

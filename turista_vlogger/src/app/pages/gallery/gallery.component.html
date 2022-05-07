@@ -1,15 +1,2 @@
-<div>
-    <select #chosenImage (change)="reload()">
-        <option value="t_kdnF3UDmA">t_kdnF3UDmA</option>
-        <option value="YofijJldwZs">YofijJldwZs</option>
-        <option value="ryktZYwZEEo">ryktZYwZEEo</option>
-        <option value="6Tl4zAkijvs">6Tl4zAkijvs</option>
-        <option value="428ODCTgldk">428ODCTgldk</option>
-        
-    </select>
-    <div class="container">
-        
-        <img class="galleryImage" [src]="'assets/unsamples/'+chosenImage.value+'.jpg'">
-        <div></div>
-    </div>
-</div>
+<app-list [galleryObjectInput]="galleryObject" (imageObjectEmitter)="loadImage($event)"></app-list>
+<app-viewer [imageInput]="chosenImage"></app-viewer>
