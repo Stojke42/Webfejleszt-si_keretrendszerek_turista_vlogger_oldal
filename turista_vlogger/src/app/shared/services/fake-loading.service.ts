@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, subscribeOn, Subscriber } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,31 @@ export class FakeLoadingService {
     });
 
   }
+
+  loadingwithObservable(email: string, password: string): Observable<boolean> {
+    return new Observable((Subscriber: Subscriber<boolean>) => {
+      let i = 0
+      const intervalum = setInterval(() => {
+        i++
+        //Subscriber.next(i)
+        if (i === 3) {
+          if (email === "test@gmail.com" && password === "test") {
+            Subscriber.next(true);
+            Subscriber.complete()
+          }
+          else {
+  
+            Subscriber.next(false)
+          }
+        }
+
+      },1000)
+
+
+    })
+  }
+
+
+
 
 }
