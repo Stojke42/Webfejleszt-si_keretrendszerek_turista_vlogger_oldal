@@ -1,5 +1,5 @@
 <h1>Hello</h1>
-<app-menu></app-menu>
+<app-menu (selctedPage)="changePage($event)"></app-menu>
 <div class="main_component"  *ngIf="page ==='main'">
     <app-main></app-main>
 </div>
