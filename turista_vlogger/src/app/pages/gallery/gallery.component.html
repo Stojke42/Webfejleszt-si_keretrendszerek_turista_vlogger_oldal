@@ -1,5 +1,5 @@
 <div>
-    <select>
+    <select #chosenImage (change)="reload()">
         <option value="t_kdnF3UDmA">t_kdnF3UDmA</option>
         <option value="YofijJldwZs">YofijJldwZs</option>
         <option value="ryktZYwZEEo">ryktZYwZEEo</option>
@@ -8,7 +8,8 @@
         
     </select>
     <div class="container">
-        <img class="galleryImage" src="assets/unsamples/t_kdnF3UDmA.jpg">
-
+        
+        <img class="galleryImage" [src]="'assets/unsamples/'+chosenImage.value+'.jpg'">
+        <div></div>
     </div>
 </div>

@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'turista_vlogger';
-  page='gallery';
+  page='main';
 }

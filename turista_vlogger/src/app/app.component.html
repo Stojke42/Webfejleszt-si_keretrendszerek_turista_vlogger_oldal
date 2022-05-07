@@ -1,6 +1,9 @@
-
 <h1>Hello</h1>
 <app-menu></app-menu>
-<app-main *ngIf="page ==='main'"></app-main>
+<div class="main_component"  *ngIf="page ==='main'">
+    <app-main></app-main>
+</div>
+
+
 <app-gallery *ngIf="page ==='gallery'"></app-gallery>
 <app-contact *ngIf="page ==='contact'"></app-contact>
