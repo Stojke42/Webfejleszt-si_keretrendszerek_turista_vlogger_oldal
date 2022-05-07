@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GalleryObject } from '../../shared/constants/constants';
+import { Image } from '../../shared/models/Image';
+import { GalleryService } from '../../shared/services/gallery.service';
 
 @Component({
   selector: 'app-gallery',
@@ -8,15 +9,18 @@ import { GalleryObject } from '../../shared/constants/constants';
 })
 export class GalleryComponent implements OnInit {
 
-  galleryObject: Array<any> = GalleryObject;
-  chosenImage: any;
+  galleryObject?: Array<Image>;
+  chosenImage?: Image;
 
-  constructor() { }
+  constructor(private galleryService: GalleryService) { }
 
   ngOnInit(): void {
+    this.galleryService.loadImageMeta('__credits.json').subscribe((data: Array<Image>) => {
+      this.galleryObject = data;
+    })
   }
 
-  loadImage(imageObject: any) {
+  loadImage(imageObject: Image) {
     this.chosenImage = imageObject;
   }
 

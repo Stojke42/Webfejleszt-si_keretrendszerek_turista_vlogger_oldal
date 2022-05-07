@@ -1,16 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Image } from '../../../shared/models/Image';
 import { Comment } from '../../../shared/models/Comment';
+import { GalleryService } from '../../../shared/services/gallery.service';
 
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
   styleUrls: ['./viewer.component.scss']
 })
-export class ViewerComponent implements OnInit {
+export class ViewerComponent implements OnInit, OnChanges {
 
-  @Input() imageInput: any;
+  @Input() imageInput?: Image;
+  loadedImage?: string;
 
   // commentObject: any = {};
   comments: Array<Comment> = [];
@@ -21,9 +24,23 @@ export class ViewerComponent implements OnInit {
     date: new Date()
   });
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private galleryService: GalleryService) { }
+
+  ngOnChanges(): void {
+    if (this.imageInput?.id) {
+      this.galleryService.loadImage(this.imageInput?.id + '.jpg').subscribe(data => {
+        let reader = new FileReader();
+        reader.readAsDataURL(data);
+        reader.onloadend = () => {
+          this.loadedImage = reader.result as string;
+        }
+      })
+    }
+  }
 
   ngOnInit(): void {
+    
+    
   }
 
   createForm(model: Comment) {

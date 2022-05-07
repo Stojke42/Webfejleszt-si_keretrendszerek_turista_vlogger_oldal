@@ -1,65 +1,46 @@
 import { Injectable } from '@angular/core';
-import { Observable, subscribeOn, Subscriber } from 'rxjs';
+import { Observable, Subscriber } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FakeLoadingService {
 
-  constructor() {
+  constructor() { }
 
-    // Create update read delete
+  // Promise
+  // Observable
 
-
-
-  }
-  // callback nem jo  promise observable
   loadingWithPromise(email: string, password: string): Promise<boolean> {
-    return new Promise((resolve, rejects) => {
-
-
+    return new Promise((resolve, reject) => {
       let i = 0;
       setTimeout(() => {
-
-        if (email === "test@gmail.com" && password === "test") {
+        if (email === 'test@gmail.com' && password === 'testpw') {
           resolve(true);
+        } else {
+          reject(false);
         }
-        else {
-
-          rejects(false)
-        }
-
-
       }, 3000);
-
     });
-
   }
 
-  loadingwithObservable(email: string, password: string): Observable<boolean> {
-    return new Observable((Subscriber: Subscriber<boolean>) => {
-      let i = 0
-      const intervalum = setInterval(() => {
-        i++
-        //Subscriber.next(i)
+  loadingWithObservable(email: string, password: string): Observable<boolean> {
+    // data stream
+    return new Observable((subscriber: Subscriber<boolean>) => {
+      let i = 0;
+      const interval = setInterval(() => {
+        i++;
+        // subscriber.next(i);
         if (i === 3) {
-          if (email === "test@gmail.com" && password === "test") {
-            Subscriber.next(true);
-            Subscriber.complete()
-          }
-          else {
-  
-            Subscriber.next(false)
+          if (email === 'test@gmail.com' && password === 'testpw') {
+            subscriber.next(true);
+            subscriber.complete();
+          } else {
+            subscriber.error(false);
           }
         }
-
-      },1000)
-
-
-    })
+      }, 1000);
+    });
   }
-
-
-
 
 }

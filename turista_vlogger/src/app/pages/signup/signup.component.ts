@@ -9,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  signupForm = new FormGroup({
+  signUpForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
     rePassword: new FormControl(''),
@@ -24,12 +24,12 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  onSubmit() {
+    console.log(this.signUpForm.value);
+  }
 
   goBack() {
     this.location.back();
   }
-  onSubmit() {
-    console.log(this.signupForm.value);
-  }
+
 }
