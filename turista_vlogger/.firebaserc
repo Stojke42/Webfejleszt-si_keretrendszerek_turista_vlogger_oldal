@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "webfejl-turistavlogger": {
+      "hosting": {
+        "week-04": [
+          "webfejl-turistavlogger"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webfejl-turistavlogger"
+  }
+}
