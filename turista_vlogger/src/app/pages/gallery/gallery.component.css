@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.galleryImage{
+    width: 25%;
+    height: auto;
+}
