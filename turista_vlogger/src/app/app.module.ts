@@ -7,6 +7,8 @@ import { MainComponent } from './pages/main/main.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { MenuComponent } from './shared/menu/menu.component';
+import { ListComponent } from './pages/gallery/list/list.component';
+import { ViewerComponent } from './pages/gallery/viewer/viewer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { MenuComponent } from './shared/menu/menu.component';
     MainComponent,
     GalleryComponent,
     ContactComponent,
-    MenuComponent
+    MenuComponent,
+    ListComponent,
+    ViewerComponent
   ],
   imports: [
     BrowserModule,
